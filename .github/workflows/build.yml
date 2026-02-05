@@ -28,16 +28,13 @@ jobs:
               sleep 1
             done
 
-        - name: ls
-          run: |
-            ls
-
-        - name: Create database
-          run: mysql -h 127.0.0.1 -u root -p${{ secrets.DB_PASSWORD }} ${{ secrets.DB_NAME }} < infra/script.sql
-
+        # recopie du depot dans l'executeur
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
+        - name: Create database
+          run: mysql -h 127.0.0.1 -u root -p${{ secrets.DB_PASSWORD }} ${{ secrets.DB_NAME }} < infra/script.sql
 
         - name: Set up JDK 21
           uses: actions/setup-java@v4
