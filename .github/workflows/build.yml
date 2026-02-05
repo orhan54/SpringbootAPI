@@ -28,6 +28,11 @@ jobs:
               sleep 1
             done
 
+        - name: ls
+          run: |
+            cd infra
+            ls *
+
         - name: Create database
           run: mysql -h 127.0.0.1 -u root -p${{ secrets.DB_PASSWORD }} ${{ secrets.DB_NAME }} < infra/script.sql
 
