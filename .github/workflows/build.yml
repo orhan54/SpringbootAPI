@@ -108,7 +108,7 @@ jobs:
             echo "Erreur: Aucun fichier JAR trouvé dans target/!"
             exit 1
           fi
-          echo "✅ Artefact JAR trouvé avec succès!"
+          echo "Artefact JAR trouvé avec succès!"
           echo "Fichier(s) trouvé(s):"
           ls -lh target/*.jar
 
